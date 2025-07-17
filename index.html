@@ -106,22 +106,62 @@
             font-size: 1.1em;
         }
 
+        .game-preview {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            border-radius: 0 0 20px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .game-preview:hover {
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            transform: scale(1.02);
+        }
+
+        .preview-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .preview-text {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .preview-subtitle {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
         .game-frame {
             width: 100%;
             height: 400px;
             border: none;
             background: #f7fafc;
             border-radius: 0 0 20px 20px;
+            display: none;
         }
 
         .loading {
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             height: 400px;
             background: #f7fafc;
             color: #718096;
             font-size: 1.1em;
+            border-radius: 0 0 20px 20px;
         }
 
         .loading::before {
@@ -173,6 +213,41 @@
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
 
+        .play-btn {
+            background: linear-gradient(45deg, #48bb78, #38a169);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .play-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
+        }
+
+        .fullscreen-btn {
+            background: linear-gradient(45deg, #48bb78, #38a169);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .fullscreen-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
+        }
+
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2em;
@@ -184,6 +259,10 @@
             
             .game-frame {
                 height: 300px;
+            }
+            
+            .game-preview {
+                height: 250px;
             }
         }
 
@@ -261,23 +340,6 @@
             background: #f0f0f0;
         }
 
-        .fullscreen-btn {
-            background: linear-gradient(45deg, #48bb78, #38a169);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-        }
-
-        .fullscreen-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(72, 187, 120, 0.4);
-        }
-
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -302,6 +364,9 @@
 </head>
 <body>
 
+
+
+    
     <!-- Header Include -->
     <div id="header-container">
         <script>
@@ -325,6 +390,7 @@
                 });
         </script>
     </div>
+
 
     <div class="header">
         <h1>🎮 Kids Gaming Zone</h1>
@@ -353,7 +419,8 @@
         </div>
     </div>
 
-    <!-- Footer Include -->
+
+ <!-- Footer Include -->
     <div id="footer-container">
         <script>
             fetch('footer.html')
@@ -366,7 +433,9 @@
                     // Keep default footer visible
                 });
         </script>
-    </div>
+    </div>     
+
+
 
     <script>
         const games = [
@@ -403,45 +472,100 @@
             { id: 'BkXW1a__', name: 'Collect Game', category: 'collect' },
             { id: 'EJoezu1MWqg', name: 'Tower Game', category: 'tower' },
             { id: 'r10-NLT86bx', name: 'Defense Game', category: 'defense' },
-            { id: 'ryN9EGAQa', name: 'Ninja Game', category: 'ninja' },
-            // New games added
-            { id: 'ryRWrDaNPF', name: 'Color Game', category: 'color' },
-            { id: 'NkxfOJM-qg', name: 'Pattern Game', category: 'pattern' },
-            { id: 'Sy6b98udz0', name: 'Shape Game', category: 'shape' },
-            { id: 'NzI2gCZFn', name: 'Bubble Game', category: 'bubble' },
-            { id: 'rkb--Io78Ux', name: 'Matching Game', category: 'matching' },
-            { id: 'H1be5Ef0Qp', name: 'Sorting Game', category: 'sorting' },
-            { id: 'UCS62KJ8c', name: 'Timing Game', category: 'timing' },
-            { id: 'SkhljT2fdgb', name: 'Reaction Game', category: 'reaction' },
-            { id: 'H1lZem8hq', name: 'Counting Game', category: 'counting' },
-            { id: 'Hk2yhp7cCH', name: 'Sequence Game', category: 'sequence' },
-            { id: 'rkAXTzkD5kX', name: 'Number Game', category: 'number' },
-            { id: 'H1WmafkP9JQ', name: 'Word Game', category: 'word' },
-            { id: 'r1zG1h6m90H', name: 'Challenge Game', category: 'challenge' }
+            { id: 'ryN9EGAQa', name: 'Ninja Game', category: 'ninja' }
         ];
 
+        function getGameIcon(category) {
+            const icons = {
+                'puzzle': '🧩',
+                'adventure': '🗺️',
+                'action': '⚡',
+                'racing': '🏎️',
+                'sports': '⚽',
+                'platform': '🎮',
+                'arcade': '🕹️',
+                'card': '🃏',
+                'board': '🎲',
+                'memory': '🧠',
+                'logic': '🤔',
+                'educational': '📚',
+                'creative': '🎨',
+                'music': '🎵',
+                'drawing': '✏️',
+                'math': '🔢',
+                'language': '📝',
+                'science': '🔬',
+                'fun': '😄',
+                'blocks': '🧱',
+                'speed': '💨',
+                'strategy': '♟️',
+                'shooting': '🎯',
+                'brain': '🧠',
+                'match': '🔄',
+                'skill': '🎪',
+                'quiz': '❓',
+                'reflex': '⚡',
+                'balance': '⚖️',
+                'jump': '🦘',
+                'collect': '💎',
+                'tower': '🏗️',
+                'defense': '🛡️',
+                'ninja': '🥷'
+            };
+            return icons[category] || '🎮';
+        }
+
         function createGameCard(game) {
+            const icon = getGameIcon(game.category);
             return `
                 <div class="game-card" data-category="${game.category}" data-name="${game.name}">
                     <div class="game-header">
-                        🎯 ${game.name}
+                        ${icon} ${game.name}
                     </div>
-                    <div class="loading">Loading...</div>
+                    <div class="game-preview" onclick="loadGame('${game.id}', this)">
+                        <div class="preview-icon">${icon}</div>
+                        <div class="preview-text">${game.name}</div>
+                        <div class="preview-subtitle">Click to Play</div>
+                        <button class="play-btn" onclick="event.stopPropagation(); loadGame('${game.id}', this.parentElement)">
+                            ▶️ Play Game
+                        </button>
+                    </div>
+                    <div class="loading">Loading Game...</div>
                     <iframe 
                         class="game-frame" 
-                        src="https://zv1y2i8p.play.gamezop.com/g/${game.id}"
+                        src=""
+                        data-game-id="${game.id}"
                         seamless="seamless" 
                         allowtransparency="true" 
                         allowfullscreen="true" 
                         frameborder="0"
-                        style="display: none;"
-                        onload="this.style.display='block'; this.previousElementSibling.style.display='none';"
                     ></iframe>
-                    <button class="fullscreen-btn" onclick="openModal('${game.id}', '${game.name}')">
+                    <button class="fullscreen-btn" onclick="openModal('${game.id}', '${game.name}')" style="display: none;">
                         🔍 Play Fullscreen
                     </button>
                 </div>
             `;
+        }
+
+        function loadGame(gameId, previewElement) {
+            const gameCard = previewElement.closest('.game-card');
+            const loadingElement = gameCard.querySelector('.loading');
+            const gameFrame = gameCard.querySelector('.game-frame');
+            const fullscreenBtn = gameCard.querySelector('.fullscreen-btn');
+            
+            // Hide preview and show loading
+            previewElement.style.display = 'none';
+            loadingElement.style.display = 'flex';
+            
+            // Load the game
+            gameFrame.src = `https://zv1y2i8p.play.gamezop.com/g/${gameId}`;
+            
+            // Show game frame and fullscreen button when loaded
+            gameFrame.onload = function() {
+                loadingElement.style.display = 'none';
+                gameFrame.style.display = 'block';
+                fullscreenBtn.style.display = 'block';
+            };
         }
 
         function loadGames() {
@@ -482,7 +606,7 @@
             modalTitle.textContent = gameName;
             modalGameFrame.src = `https://zv1y2i8p.play.gamezop.com/g/${gameId}`;
             modal.classList.add('show');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
@@ -490,8 +614,8 @@
             const modalGameFrame = document.getElementById('modalGameFrame');
             
             modal.classList.remove('show');
-            modalGameFrame.src = ''; // Stop the game
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            modalGameFrame.src = '';
+            document.body.style.overflow = 'auto';
         }
 
         // Close modal when clicking outside
@@ -518,16 +642,6 @@
                 if (e.key === 'Enter') {
                     searchGames();
                 }
-            });
-        });
-
-        // Add smooth scrolling for better UX
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
             });
         });
     </script>
