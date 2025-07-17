@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website - Main Page</title>
+    <title>Kids Games Hub - Advanced Games</title>
     <style>
         * {
             margin: 0;
@@ -12,449 +12,1086 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
+            font-family: 'Comic Sans MS', cursive;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            padding: 20px;
         }
 
-        /* Navbar Styles */
-        .navbar {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 30%, #e74c3c 70%, #c0392b 100%);
-            padding: 0.8rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-            border-bottom: 3px solid #c0392b;
-        }
-
-        .nav-container {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
-        /* Logo */
-        .logo {
-            color: white;
-            font-size: 1.9rem;
-            font-weight: bold;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .logo::before {
-            content: "🎮";
-            font-size: 1.6rem;
-            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
-        }
-
-        .logo:hover {
-            color: #FFD700;
-            transform: scale(1.05);
-            text-shadow: 2px 2px 8px rgba(255,215,0,0.5);
-        }
-
-        /* Navigation Links */
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 0.5rem;
-            align-items: center;
-        }
-
-        .nav-links li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.6rem 1.2rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            position: relative;
-            font-size: 0.95rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-
-        .nav-links li a:hover {
-            background: linear-gradient(135deg, rgba(255,255,255,0.15), rgba(255,255,255,0.05));
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .nav-links li a::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 50%;
-            width: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #FFD700, #FFA500);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .nav-links li a:hover::after {
-            width: 80%;
-        }
-
-        /* Auth Button */
-        .auth-btn {
-            padding: 0.7rem 1.5rem;
-            border: 2px solid #FFD700;
-            border-radius: 30px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            background: linear-gradient(135deg, transparent, rgba(255,215,0,0.1));
-            color: #FFD700;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            margin-left: 1rem;
-        }
-
-        .auth-btn:hover {
-            background: linear-gradient(135deg, #FFD700, #FFA500);
-            color: #2c3e50;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,215,0,0.4);
-            text-shadow: none;
-        }
-
-        /* Mobile Menu Toggle */
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-toggle:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        /* Hide mobile login item by default */
-        .mobile-login-item {
-            display: none;
-        }
-
-        /* Mobile Styles */
-        @media (max-width: 768px) {
-            .nav-container {
-                position: relative;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: linear-gradient(135deg, #2c3e50 0%, #34495e 30%, #e74c3c 70%, #c0392b 100%);
-                flex-direction: column;
-                padding: 1rem 0;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-                border-top: 1px solid rgba(255,255,255,0.1);
-                z-index: 1001;
-            }
-
-            .nav-links.active {
-                display: flex !important;
-            }
-
-            .nav-links li {
-                width: 100%;
-            }
-
-            .nav-links li a {
-                display: block;
-                padding: 1rem 2rem;
-                text-align: center;
-                border-bottom: 1px solid rgba(255,255,255,0.1);
-                font-size: 1rem;
-            }
-
-            .nav-links li a:hover {
-                background: rgba(255,255,255,0.1);
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-
-            .auth-btn {
-                margin: 1rem 2rem;
-                text-align: center;
-                display: block;
-                margin-left: 2rem;
-            }
-
-            .mobile-login-item {
-                display: block;
-            }
-
-            /* Hide desktop auth button on mobile */
-            .desktop-auth {
-                display: none !important;
-            }
-
-            .logo {
-                font-size: 1.6rem;
-            }
-
-            .logo::before {
-                font-size: 1.4rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-container {
-                padding: 0 0.5rem;
-            }
-            
-            .logo {
-                font-size: 1.4rem;
-            }
-
-            .logo::before {
-                font-size: 1.2rem;
-            }
-
-            .auth-btn {
-                font-size: 0.8rem;
-                padding: 0.6rem 1.2rem;
-            }
-        }
-
-        .main-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background: rgba(255, 255, 255, 0.95);
-            margin-top: 20px;
-            margin-bottom: 20px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-        }
-
-        .content-section {
+        .title {
             text-align: center;
-            padding: 50px 0;
-        }
-
-        .content-section h1 {
-            font-size: 3em;
-            color: #4a5568;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .content-section p {
-            font-size: 1.2em;
-            color: #666;
+            color: white;
+            font-size: 2.5em;
             margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: glow 2s ease-in-out infinite alternate;
         }
 
-        .feature-grid {
+        @keyframes glow {
+            from { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+            to { text-shadow: 2px 2px 20px rgba(255,255,255,0.3); }
+        }
+
+        .games-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            gap: 25px;
+            margin: 40px 0;
         }
 
-        .feature-card {
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            color: white;
+        .game-card {
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+            border-radius: 20px;
             padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: #ff6b6b;
+        }
+
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
+            border-radius: 20px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .game-card:hover::before {
+            opacity: 1;
+        }
+
+        .game-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        .game-title {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .game-description {
+            color: #666;
+            font-size: 1em;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .play-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(255,107,107,0.3);
+        }
+
+        .play-btn:hover {
+            background: linear-gradient(45deg, #ee5a24, #ff6b6b);
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(255,107,107,0.5);
+        }
+
+        .game-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            padding: 40px;
+            border-radius: 25px;
+            max-width: 800px;
+            width: 95%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2.5em;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #ff6b6b;
+        }
+
+        .game-area {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #dee2e6;
+        }
+
+        .score-display {
+            font-size: 1.5em;
+            color: #2d3436;
+            margin: 15px 0;
+            font-weight: bold;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #00b894, #00a085);
+            color: white;
+            border-radius: 25px;
+            box-shadow: 0 5px 15px rgba(0,184,148,0.3);
+        }
+
+        /* Snake Game Styles */
+        .snake-canvas {
+            border: 3px solid #333;
+            border-radius: 10px;
+            background: #2d3436;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .snake-controls {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 150px;
+            margin: 20px auto;
+        }
+
+        .snake-btn {
+            padding: 15px;
+            background: #00b894;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+        }
+
+        .snake-btn:hover {
+            background: #00a085;
+            transform: scale(1.1);
+        }
+
+        /* Memory Game Styles */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .memory-card {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #ff9a9e, #fecfef);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 2em;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .memory-card:hover {
+            transform: scale(1.05);
+        }
+
+        .memory-card.flipped {
+            background: linear-gradient(45deg, #a8edea, #fed6e3);
+            transform: rotateY(180deg);
+        }
+
+        /* Math Game Styles */
+        .math-problem {
+            font-size: 3em;
+            color: #333;
+            margin: 30px 0;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .math-input {
+            font-size: 2em;
+            padding: 15px;
+            border: 3px solid #ddd;
             border-radius: 15px;
             text-align: center;
-            transition: transform 0.3s ease;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 150px;
+            margin: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
+        .math-input:focus {
+            border-color: #00b894;
+            outline: none;
         }
 
-        .feature-card h3 {
-            font-size: 1.5em;
-            margin-bottom: 15px;
+        /* Drawing Game Styles */
+        .drawing-canvas {
+            border: 3px solid #333;
+            border-radius: 15px;
+            background: white;
+            cursor: crosshair;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .feature-card p {
-            font-size: 1em;
-            opacity: 0.9;
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
         }
 
-        .icon {
-            font-size: 3em;
-            margin-bottom: 20px;
+        .color-btn {
+            width: 50px;
+            height: 50px;
+            border: 3px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .color-btn:hover {
+            transform: scale(1.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .color-btn.active {
+            border-color: #333;
+            transform: scale(1.1);
+        }
+
+        /* Puzzle Game Styles */
+        .puzzle-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 300px;
+            margin: 20px auto;
+        }
+
+        .puzzle-piece {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .puzzle-piece:hover {
+            transform: scale(1.05);
+        }
+
+        .puzzle-piece.empty {
+            background: linear-gradient(45deg, #ddd, #ccc);
         }
 
         @media (max-width: 768px) {
-            .main-content {
-                margin: 10px;
-                padding: 20px;
-            }
-            
-            .content-section h1 {
+            .title {
                 font-size: 2em;
             }
             
-            .feature-grid {
+            .games-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .modal-content {
+                padding: 20px;
+                width: 98%;
+            }
+            
+            .game-area {
+                padding: 20px;
+                min-height: 300px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Include -->
-    <div id="header-container"></div>
+    <div class="container">
+        <h1 class="title">🎮 Advanced Kids Games Hub 🎮</h1>
+        
+        <div class="games-grid">
+            <!-- Snake Game -->
+            <div class="game-card" onclick="openGame('snake')">
+                <span class="game-icon">🐍</span>
+                <div class="game-title">Snake Adventure</div>
+                <div class="game-description">Control the snake with arrow keys or buttons. Eat food to grow longer and avoid hitting walls or yourself!</div>
+                <button class="play-btn">Play Now</button>
+            </div>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="content-section">
-            <h1>🌟 Welcome to My Website</h1>
-            <p>Yeh aapki main website hai jahan header aur footer automatically load ho rahe hain. Aap yahan apna content add kar sakte hain.</p>
-            
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="icon">🎨</div>
-                    <h3>Beautiful Design</h3>
-                    <p>Modern aur responsive design jo har device mein perfect dikhta hai.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="icon">⚡</div>
-                    <h3>Fast Loading</h3>
-                    <p>Optimized code jo quickly load hota hai aur smooth experience deta hai.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="icon">📱</div>
-                    <h3>Mobile Friendly</h3>
-                    <p>Har screen size ke liye perfectly responsive design.</p>
-                </div>
+            <!-- Memory Game -->
+            <div class="game-card" onclick="openGame('memory')">
+                <span class="game-icon">🧠</span>
+                <div class="game-title">Memory Master</div>
+                <div class="game-description">Flip cards to find matching pairs. Test your memory skills with colorful emojis!</div>
+                <button class="play-btn">Play Now</button>
+            </div>
+
+            <!-- Math Game -->
+            <div class="game-card" onclick="openGame('math')">
+                <span class="game-icon">🔢</span>
+                <div class="game-title">Math Champion</div>
+                <div class="game-description">Solve math problems quickly and accurately. Multiple difficulty levels to challenge yourself!</div>
+                <button class="play-btn">Play Now</button>
+            </div>
+
+            <!-- Drawing Game -->
+            <div class="game-card" onclick="openGame('drawing')">
+                <span class="game-icon">🎨</span>
+                <div class="game-title">Digital Artist</div>
+                <div class="game-description">Create amazing artwork with multiple colors and brush sizes. Express your creativity!</div>
+                <button class="play-btn">Play Now</button>
+            </div>
+
+            <!-- Puzzle Game -->
+            <div class="game-card" onclick="openGame('puzzle')">
+                <span class="game-icon">🧩</span>
+                <div class="game-title">Sliding Puzzle</div>
+                <div class="game-description">Arrange numbered tiles in correct order by sliding them. Challenge your problem-solving skills!</div>
+                <button class="play-btn">Play Now</button>
             </div>
         </div>
     </div>
 
-    <!-- Footer Include -->
-    <div id="footer-container"></div>
+    <!-- Game Modal -->
+    <div class="game-modal" id="gameModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeGame()">&times;</span>
+            <h2 id="gameTitle">Game Title</h2>
+            <div class="game-area" id="gameArea">
+                <!-- Game content will be loaded here -->
+            </div>
+            <div class="score-display" id="gameScore">Score: 0</div>
+        </div>
+    </div>
 
     <script>
-        // Function to load external HTML files
-        function loadHTML(file, elementId) {
-            fetch(file)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('File not found: ' + file);
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    document.getElementById(elementId).innerHTML = data;
-                    
-                    // Agar header load ho raha hai to events bind karo
-                    if (elementId === 'header-container') {
-                        initializeHeaderEvents();
-                    }
-                })
-                .catch(error => {
-                    console.error('Error loading ' + file + ':', error);
-                    document.getElementById(elementId).innerHTML = '<div style="padding: 20px; text-align: center; color: #666;">Error loading ' + file + '</div>';
-                });
-        }
+        let currentGame = null;
+        let gameScore = 0;
+        let gameData = {};
 
-        // Header events initialize karne ka function
-        function initializeHeaderEvents() {
-            // Wait for DOM to be ready
-            setTimeout(function() {
-                const mobileToggle = document.getElementById('mobile-toggle');
-                const navLinks = document.getElementById('nav-links');
-                const toggleIcon = document.getElementById('toggle-icon');
-
-                // Mobile menu toggle function
-                if (mobileToggle && navLinks && toggleIcon) {
-                    // Remove any existing event listeners to prevent duplicates
-                    mobileToggle.removeEventListener('click', handleMobileToggle);
-                    
-                    // Add new event listener
-                    mobileToggle.addEventListener('click', handleMobileToggle);
-
-                    // Close mobile menu when clicking outside
-                    document.addEventListener('click', function(e) {
-                        if (!e.target.closest('.navbar') && navLinks.classList.contains('active')) {
-                            navLinks.classList.remove('active');
-                            toggleIcon.textContent = '☰';
-                        }
-                    });
-
-                    // Handle window resize
-                    window.addEventListener('resize', function() {
-                        if (window.innerWidth > 768) {
-                            navLinks.classList.remove('active');
-                            toggleIcon.textContent = '☰';
-                        }
-                    });
-
-                    // Close mobile menu when clicking on links
-                    navLinks.addEventListener('click', function(e) {
-                        if (e.target.tagName === 'A' && window.innerWidth <= 768) {
-                            navLinks.classList.remove('active');
-                            toggleIcon.textContent = '☰';
-                        }
-                    });
-                }
-            }, 100);
-        }
-
-        // Mobile toggle handler function
-        function handleMobileToggle(e) {
-            e.preventDefault();
-            e.stopPropagation();
+        function openGame(gameType) {
+            const modal = document.getElementById('gameModal');
+            const gameArea = document.getElementById('gameArea');
+            const gameTitle = document.getElementById('gameTitle');
+            const scoreElement = document.getElementById('gameScore');
             
-            const navLinks = document.getElementById('nav-links');
-            const toggleIcon = document.getElementById('toggle-icon');
+            currentGame = gameType;
+            gameScore = 0;
+            scoreElement.textContent = 'Score: 0';
             
-            console.log('Mobile toggle clicked');
+            modal.style.display = 'flex';
             
-            navLinks.classList.toggle('active');
-            
-            if (navLinks.classList.contains('active')) {
-                toggleIcon.textContent = '✕';
-                console.log('Menu opened');
-            } else {
-                toggleIcon.textContent = '☰';
-                console.log('Menu closed');
+            switch(gameType) {
+                case 'snake':
+                    gameTitle.textContent = 'Snake Adventure';
+                    loadSnakeGame();
+                    break;
+                case 'memory':
+                    gameTitle.textContent = 'Memory Master';
+                    loadMemoryGame();
+                    break;
+                case 'math':
+                    gameTitle.textContent = 'Math Champion';
+                    loadMathGame();
+                    break;
+                case 'drawing':
+                    gameTitle.textContent = 'Digital Artist';
+                    loadDrawingGame();
+                    break;
+                case 'puzzle':
+                    gameTitle.textContent = 'Sliding Puzzle';
+                    loadPuzzleGame();
+                    break;
             }
         }
 
-        // Load header and footer when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            loadHTML('header.html', 'header-container');
-            loadHTML('footer.html', 'footer-container');
+        function closeGame() {
+            document.getElementById('gameModal').style.display = 'none';
+            currentGame = null;
+            gameData = {};
+        }
+
+        function updateScore(points) {
+            gameScore += points;
+            document.getElementById('gameScore').textContent = 'Score: ' + gameScore;
+        }
+
+        // Snake Game
+        function loadSnakeGame() {
+            const gameArea = document.getElementById('gameArea');
+            gameArea.innerHTML = `
+                <div>
+                    <canvas id="snakeCanvas" class="snake-canvas" width="400" height="400"></canvas>
+                    <div class="snake-controls">
+                        <div></div>
+                        <button class="snake-btn" onclick="changeDirection('up')">↑</button>
+                        <div></div>
+                        <button class="snake-btn" onclick="changeDirection('left')">←</button>
+                        <button class="snake-btn" onclick="startSnakeGame()" style="background: #e74c3c;">START</button>
+                        <button class="snake-btn" onclick="changeDirection('right')">→</button>
+                        <div></div>
+                        <button class="snake-btn" onclick="changeDirection('down')">↓</button>
+                        <div></div>
+                    </div>
+                    <div style="color: #666; margin-top: 10px;">
+                        Use arrow keys or buttons to control the snake
+                    </div>
+                </div>
+            `;
+
+            const canvas = document.getElementById('snakeCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            gameData.snake = {
+                canvas: canvas,
+                ctx: ctx,
+                gridSize: 20,
+                tileCount: 20,
+                snake: [{x: 10, y: 10}],
+                food: {x: 15, y: 15},
+                dx: 0,
+                dy: 0,
+                gameRunning: false
+            };
+
+            drawSnake();
+        }
+
+        function startSnakeGame() {
+            const data = gameData.snake;
+            if (data.gameRunning) return;
+            
+            data.gameRunning = true;
+            data.snake = [{x: 10, y: 10}];
+            data.dx = 1;
+            data.dy = 0;
+            generateFood();
+            gameLoop();
+        }
+
+        function changeDirection(direction) {
+            const data = gameData.snake;
+            if (!data.gameRunning) return;
+            
+            switch(direction) {
+                case 'up':
+                    if (data.dy === 0) { data.dx = 0; data.dy = -1; }
+                    break;
+                case 'down':
+                    if (data.dy === 0) { data.dx = 0; data.dy = 1; }
+                    break;
+                case 'left':
+                    if (data.dx === 0) { data.dx = -1; data.dy = 0; }
+                    break;
+                case 'right':
+                    if (data.dx === 0) { data.dx = 1; data.dy = 0; }
+                    break;
+            }
+        }
+
+        function gameLoop() {
+            const data = gameData.snake;
+            if (!data.gameRunning) return;
+            
+            setTimeout(() => {
+                clearCanvas();
+                moveSnake();
+                drawSnake();
+                drawFood();
+                
+                if (checkCollision()) {
+                    data.gameRunning = false;
+                    alert('Game Over! Your score: ' + gameScore);
+                    return;
+                }
+                
+                gameLoop();
+            }, 150);
+        }
+
+        function clearCanvas() {
+            const data = gameData.snake;
+            data.ctx.fillStyle = '#2d3436';
+            data.ctx.fillRect(0, 0, data.canvas.width, data.canvas.height);
+        }
+
+        function moveSnake() {
+            const data = gameData.snake;
+            const head = {x: data.snake[0].x + data.dx, y: data.snake[0].y + data.dy};
+            data.snake.unshift(head);
+            
+            if (head.x === data.food.x && head.y === data.food.y) {
+                updateScore(10);
+                generateFood();
+            } else {
+                data.snake.pop();
+            }
+        }
+
+        function drawSnake() {
+            const data = gameData.snake;
+            data.ctx.fillStyle = '#00b894';
+            data.snake.forEach(segment => {
+                data.ctx.fillRect(segment.x * data.gridSize, segment.y * data.gridSize, data.gridSize - 2, data.gridSize - 2);
+            });
+        }
+
+        function drawFood() {
+            const data = gameData.snake;
+            data.ctx.fillStyle = '#e74c3c';
+            data.ctx.fillRect(data.food.x * data.gridSize, data.food.y * data.gridSize, data.gridSize - 2, data.gridSize - 2);
+        }
+
+        function generateFood() {
+            const data = gameData.snake;
+            data.food = {
+                x: Math.floor(Math.random() * data.tileCount),
+                y: Math.floor(Math.random() * data.tileCount)
+            };
+        }
+
+        function checkCollision() {
+            const data = gameData.snake;
+            const head = data.snake[0];
+            
+            // Wall collision
+            if (head.x < 0 || head.x >= data.tileCount || head.y < 0 || head.y >= data.tileCount) {
+                return true;
+            }
+            
+            // Self collision
+            for (let i = 1; i < data.snake.length; i++) {
+                if (head.x === data.snake[i].x && head.y === data.snake[i].y) {
+                    return true;
+                }
+            }
+            
+            return false;
+        }
+
+        // Memory Game
+        function loadMemoryGame() {
+            const gameArea = document.getElementById('gameArea');
+            const emojis = ['🐶', '🐱', '🐭', '🐹', '🐰', '🦊', '🐻', '🐼'];
+            let cards = [...emojis, ...emojis];
+            cards = cards.sort(() => Math.random() - 0.5);
+            
+            gameData.memory = {
+                cards: cards,
+                flippedCards: [],
+                matchedPairs: 0,
+                canFlip: true
+            };
+            
+            gameArea.innerHTML = `
+                <div>
+                    <div class="memory-grid" id="memoryGrid">
+                        ${cards.map((card, index) => `
+                            <div class="memory-card" data-index="${index}" onclick="flipMemoryCard(${index})">
+                                <span style="display: none;">${card}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div style="margin-top: 20px; color: #666;">
+                        Find matching pairs by flipping cards
+                    </div>
+                </div>
+            `;
+        }
+
+        function flipMemoryCard(index) {
+            const data = gameData.memory;
+            if (!data.canFlip || data.flippedCards.length >= 2) return;
+            
+            const card = document.querySelector(`[data-index="${index}"]`);
+            if (card.classList.contains('flipped')) return;
+            
+            card.classList.add('flipped');
+            card.querySelector('span').style.display = 'block';
+            data.flippedCards.push(index);
+            
+            if (data.flippedCards.length === 2) {
+                data.canFlip = false;
+                setTimeout(checkMemoryMatch, 1000);
+            }
+        }
+
+        function checkMemoryMatch() {
+            const data = gameData.memory;
+            const [first, second] = data.flippedCards;
+            const firstCard = document.querySelector(`[data-index="${first}"]`);
+            const secondCard = document.querySelector(`[data-index="${second}"]`);
+            
+            if (data.cards[first] === data.cards[second]) {
+                data.matchedPairs++;
+                updateScore(20);
+                
+                if (data.matchedPairs === 8) {
+                    setTimeout(() => {
+                        alert('Congratulations! You found all pairs! 🎉');
+                    }, 500);
+                }
+            } else {
+                firstCard.classList.remove('flipped');
+                secondCard.classList.remove('flipped');
+                firstCard.querySelector('span').style.display = 'none';
+                secondCard.querySelector('span').style.display = 'none';
+            }
+            
+            data.flippedCards = [];
+            data.canFlip = true;
+        }
+
+        // Math Game
+        function loadMathGame() {
+            gameData.math = {
+                level: 1,
+                correctAnswers: 0
+            };
+            generateMathProblem();
+        }
+
+        function generateMathProblem() {
+            const gameArea = document.getElementById('gameArea');
+            const level = gameData.math.level;
+            const maxNum = Math.min(10 + (level * 5), 50);
+            
+            const num1 = Math.floor(Math.random() * maxNum) + 1;
+            const num2 = Math.floor(Math.random() * maxNum) + 1;
+            const operations = ['+', '-', '×', '÷'];
+            const operation = operations[Math.floor(Math.random() * operations.length)];
+            
+            let answer;
+            let problemText;
+            
+            switch(operation) {
+                case '+':
+                    answer = num1 + num2;
+                    problemText = `${num1} + ${num2}`;
+                    break;
+                case '-':
+                    answer = Math.max(num1, num2) - Math.min(num1, num2);
+                    problemText = `${Math.max(num1, num2)} - ${Math.min(num1, num2)}`;
+                    break;
+                case '×':
+                    const smallNum1 = Math.floor(Math.random() * 10) + 1;
+                    const smallNum2 = Math.floor(Math.random() * 10) + 1;
+                    answer = smallNum1 * smallNum2;
+                    problemText = `${smallNum1} × ${smallNum2}`;
+                    break;
+                case '÷':
+                    const divisor = Math.floor(Math.random() * 9) + 2;
+                    const dividend = divisor * (Math.floor(Math.random() * 10) + 1);
+                    answer = dividend / divisor;
+                    problemText = `${dividend} ÷ ${divisor}`;
+                    break;
+            }
+            
+            gameData.math.answer = answer;
+            
+            gameArea.innerHTML = `
+                <div>
+                    <div style="margin-bottom: 20px;">
+                        <span style="background: #6c5ce7; color: white; padding: 10px 20px; border-radius: 20px;">
+                            Level ${gameData.math.level}
+                        </span>
+                    </div>
+                    <div class="math-problem">${problemText} = ?</div>
+                    <input type="number" class="math-input" id="mathInput" placeholder="?" onkeypress="checkMathAnswer(event)">
+                    <br>
+                    <button onclick="checkMathAnswer()" style="padding: 15px 30px; background: #00b894; color: white; border: none; border-radius: 15px; cursor: pointer; font-size: 1.2em; margin: 10px;">Check Answer</button>
+                    <div id="mathResult" style="margin-top: 20px; font-size: 1.4em; min-height: 50px;"></div>
+                </div>
+            `;
+            
+            document.getElementById('mathInput').focus();
+        }
+
+        function checkMathAnswer(event) {
+            if (event && event.key !== 'Enter') return;
+            
+            const input = document.getElementById('mathInput');
+            const result = document.getElementById('mathResult');
+            const userAnswer = parseFloat(input.value);
+            
+            if (Math.abs(userAnswer - gameData.math.answer) < 0.01) {
+                result.innerHTML = '🎉 Correct! Excellent work!';
+                result.style.color = '#00b894';
+                updateScore(10 * gameData.math.level);
+                gameData.math.correctAnswers++;
+                
+                if (gameData.math.correctAnswers % 5 === 0) {
+                    gameData.math.level++;
+                    result.innerHTML += '<br>🎊 Level Up!';
+                }
+                
+                setTimeout(generateMathProblem, 2000);
+            } else {
+                result.innerHTML = `❌ Not quite right. The answer is ${gameData.math.answer}`;
+                result.style.color = '#e74c3c';
+                setTimeout(generateMathProblem, 3000);
+            }
+            
+            input.value = '';
+        }
+
+        // Drawing Game
+        function loadDrawingGame() {
+            const gameArea = document.getElementById('gameArea');
+            gameArea.innerHTML = `
+                <div>
+                    <canvas id="drawingCanvas" class="drawing-canvas" width="500" height="400"></canvas>
+                    <div class="color-palette">
+                        <div class="color-btn active" style="background: #000000;" onclick="setDrawingColor('#000000')"></div>
+                        <div class="color-btn" style="background: #ff6b6b;" onclick="setDrawingColor('#ff6b6b')"></div>
+                        <div class="color-btn" style="background: #4ecdc4;" onclick="setDrawingColor('#4ecdc4')"></div>
+                        <div class="color-btn" style="background: #45b7d1;" onclick="setDrawingColor('#45b7d1')"></div>
+                        <div class="color-btn" style="background: #f9ca24;" onclick="setDrawingColor('#f9ca24')"></div>
+                        <div class="color-btn" style="background: #6c5ce7;" onclick="setDrawingColor('#6c5ce7')"></div>
+                        <div class="color-btn" style="background: #a29bfe;" onclick="setDrawingColor('#a29bfe')"></div>
+                        <div class="color-btn" style="background: #fd79a8;" onclick="setDrawingColor('#fd79a8')"></div>
+                    </div>
+                    <div style="margin: 20px 0;">
+                        <button onclick="clearDrawing()" style="padding: 10px 20px; background: #e74c3c; color: white; border: none; border-radius: 10px; cursor: pointer; margin: 5px;">Clear Canvas</button>
+                        <label style="margin-left: 20px;">
+                            Brush Size: 
+                            <input type="range" id="brushSize" min="1" max="20" value="5" onchange="setBrushSize(this.value)">
+                            <span id="brushSizeValue">5</span>px
+                        </label>
+                    </div>
+                </div>
+            `;
+            const canvas = document.getElementById('drawingCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            gameData.drawing = {
+                canvas: canvas,
+                ctx: ctx,
+                isDrawing: false,
+                currentColor: '#000000',
+                currentSize: 5
+            };
+            
+            setupDrawingEvents();
+        }
+
+        function setupDrawingEvents() {
+            const data = gameData.drawing;
+            const canvas = data.canvas;
+            const ctx = data.ctx;
+            
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseout', stopDrawing);
+            
+            // Touch events for mobile
+            canvas.addEventListener('touchstart', handleTouch);
+            canvas.addEventListener('touchmove', handleTouch);
+            canvas.addEventListener('touchend', stopDrawing);
+        }
+
+        function startDrawing(e) {
+            const data = gameData.drawing;
+            data.isDrawing = true;
+            
+            const rect = data.canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            data.ctx.beginPath();
+            data.ctx.moveTo(x, y);
+        }
+
+        function draw(e) {
+            const data = gameData.drawing;
+            if (!data.isDrawing) return;
+            
+            const rect = data.canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            data.ctx.lineTo(x, y);
+            data.ctx.strokeStyle = data.currentColor;
+            data.ctx.lineWidth = data.currentSize;
+            data.ctx.lineCap = 'round';
+            data.ctx.stroke();
+        }
+
+        function stopDrawing() {
+            const data = gameData.drawing;
+            if (data.isDrawing) {
+                data.isDrawing = false;
+                updateScore(5);
+            }
+        }
+
+        function handleTouch(e) {
+            e.preventDefault();
+            const touch = e.touches[0];
+            const mouseEvent = new MouseEvent(e.type === 'touchstart' ? 'mousedown' : 
+                                            e.type === 'touchmove' ? 'mousemove' : 'mouseup', {
+                clientX: touch.clientX,
+                clientY: touch.clientY
+            });
+            
+            gameData.drawing.canvas.dispatchEvent(mouseEvent);
+        }
+
+        function setDrawingColor(color) {
+            gameData.drawing.currentColor = color;
+            
+            // Update active color button
+            document.querySelectorAll('.color-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        function setBrushSize(size) {
+            gameData.drawing.currentSize = size;
+            document.getElementById('brushSizeValue').textContent = size;
+        }
+
+        function clearDrawing() {
+            const data = gameData.drawing;
+            data.ctx.clearRect(0, 0, data.canvas.width, data.canvas.height);
+        }
+
+        // Sliding Puzzle Game
+        function loadPuzzleGame() {
+            const gameArea = document.getElementById('gameArea');
+            
+            gameData.puzzle = {
+                tiles: [1, 2, 3, 4, 5, 6, 7, 8, 0], // 0 represents empty space
+                size: 3,
+                moves: 0
+            };
+            
+            shufflePuzzle();
+            renderPuzzle();
+        }
+
+        function shufflePuzzle() {
+            const data = gameData.puzzle;
+            
+            // Shuffle the puzzle properly
+            for (let i = 0; i < 1000; i++) {
+                const emptyIndex = data.tiles.indexOf(0);
+                const possibleMoves = getPossibleMoves(emptyIndex);
+                const randomMove = possibleMoves[Math.floor(Math.random() * possibleMoves.length)];
+                
+                // Swap empty space with random adjacent tile
+                [data.tiles[emptyIndex], data.tiles[randomMove]] = [data.tiles[randomMove], data.tiles[emptyIndex]];
+            }
+            
+            data.moves = 0;
+        }
+
+        function getPossibleMoves(emptyIndex) {
+            const moves = [];
+            const size = gameData.puzzle.size;
+            
+            // Can move up
+            if (emptyIndex >= size) {
+                moves.push(emptyIndex - size);
+            }
+            
+            // Can move down
+            if (emptyIndex < size * (size - 1)) {
+                moves.push(emptyIndex + size);
+            }
+            
+            // Can move left
+            if (emptyIndex % size !== 0) {
+                moves.push(emptyIndex - 1);
+            }
+            
+            // Can move right
+            if (emptyIndex % size !== size - 1) {
+                moves.push(emptyIndex + 1);
+            }
+            
+            return moves;
+        }
+
+        function renderPuzzle() {
+            const gameArea = document.getElementById('gameArea');
+            const data = gameData.puzzle;
+            
+            gameArea.innerHTML = `
+                <div>
+                    <div style="margin-bottom: 20px;">
+                        <span style="background: #6c5ce7; color: white; padding: 10px 20px; border-radius: 20px;">
+                            Moves: ${data.moves}
+                        </span>
+                    </div>
+                    <div class="puzzle-grid">
+                        ${data.tiles.map((tile, index) => `
+                            <div class="puzzle-piece ${tile === 0 ? 'empty' : ''}" 
+                                 onclick="movePuzzleTile(${index})">
+                                ${tile === 0 ? '' : tile}
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <button onclick="shufflePuzzle(); renderPuzzle();" 
+                                style="padding: 10px 20px; background: #e74c3c; color: white; border: none; border-radius: 10px; cursor: pointer;">
+                            Shuffle Puzzle
+                        </button>
+                    </div>
+                    <div style="margin-top: 15px; color: #666;">
+                        Click adjacent tiles to move them into empty space
+                    </div>
+                </div>
+            `;
+        }
+
+        function movePuzzleTile(clickedIndex) {
+            const data = gameData.puzzle;
+            const emptyIndex = data.tiles.indexOf(0);
+            
+            // Check if clicked tile is adjacent to empty space
+            const possibleMoves = getPossibleMoves(emptyIndex);
+            
+            if (possibleMoves.includes(clickedIndex)) {
+                // Swap clicked tile with empty space
+                [data.tiles[emptyIndex], data.tiles[clickedIndex]] = [data.tiles[clickedIndex], data.tiles[emptyIndex]];
+                data.moves++;
+                
+                updateScore(5);
+                renderPuzzle();
+                
+                // Check if puzzle is solved
+                if (isPuzzleSolved()) {
+                    setTimeout(() => {
+                        alert(`🎉 Congratulations! You solved the puzzle in ${data.moves} moves!`);
+                        updateScore(100);
+                    }, 300);
+                }
+            }
+        }
+
+        function isPuzzleSolved() {
+            const data = gameData.puzzle;
+            const solved = [1, 2, 3, 4, 5, 6, 7, 8, 0];
+            
+            return data.tiles.every((tile, index) => tile === solved[index]);
+        }
+
+        // Keyboard controls for Snake Game
+        document.addEventListener('keydown', (e) => {
+            if (currentGame === 'snake') {
+                switch(e.key) {
+                    case 'ArrowUp':
+                        e.preventDefault();
+                        changeDirection('up');
+                        break;
+                    case 'ArrowDown':
+                        e.preventDefault();
+                        changeDirection('down');
+                        break;
+                    case 'ArrowLeft':
+                        e.preventDefault();
+                        changeDirection('left');
+                        break;
+                    case 'ArrowRight':
+                        e.preventDefault();
+                        changeDirection('right');
+                        break;
+                }
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeGame();
+            }
+        });
+
+        // Prevent scrolling when arrow keys are pressed
+        window.addEventListener('keydown', (e) => {
+            if(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
+                e.preventDefault();
+            }
+        });
+
+        // Auto-focus math input when Enter is pressed
+        document.addEventListener('keydown', (e) => {
+            if (currentGame === 'math' && e.key === 'Enter') {
+                const mathInput = document.getElementById('mathInput');
+                if (mathInput) {
+                    mathInput.focus();
+                }
+            }
         });
     </script>
 </body>
